@@ -6,6 +6,7 @@ public class User {
 	private String firstName;
 	private String LastName;
 	private String UserName;
+	private String Email;
 	private String Password;
 
 	public int getId() {
@@ -46,6 +47,14 @@ public class User {
 
 	public void setPassword(String password) {
 		Password = password;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
 	}
 
 }

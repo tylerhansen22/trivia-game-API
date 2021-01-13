@@ -33,15 +33,19 @@ public class UserDaoDB implements UserDao {
 	@Override
 	@Transactional
 	public User addUser(User user) {
-		final String INSERT_USER = "INSERT INTO user(id,FirstName,LastName, UserName,Password) " + "VALUES(?,?,?,?,?)";
+		final String INSERT_USER = "INSERT INTO user(id,FirstName,LastName, UserName,Password,Email) "
+				+ "VALUES(?,?,?,?,?,?)";
 		jdbc.update(INSERT_USER, user.getId(), user.getFirstName(), user.getLastName(), user.getUserName(),
-				user.getPassword());
+				user.getPassword(), user.getEmail());
 
 		int newId = jdbc.queryForObject("SELECT LAST_INSERT_ID()", Integer.class);
 		user.setId(newId);
 		return user;
 	}
 
+	
+	
+	//May have to add email 
 	@Override
 	public void updateUser(User user) {
 		final String UPDATE_USER = "UPDATE user SET FirstName = ?, LastName = ?, UserName = ?, Password = ?, "
@@ -51,11 +55,11 @@ public class UserDaoDB implements UserDao {
 
 	@Override
 	public void deleteUserById(int id) {
-		final String DELETE_USER = "DELETE FROM user WHERE UserId = ?";
-		jdbc.update(DELETE_USER, id);
-
 		final String DELETE_QUIZ = "DELETE FROM quiz WHERE UserId = ?";
 		jdbc.update(DELETE_QUIZ, id);
+
+		final String DELETE_USER = "DELETE FROM user WHERE UserId = ?";
+		jdbc.update(DELETE_USER, id);
 
 	}
 
@@ -73,6 +77,7 @@ public class UserDaoDB implements UserDao {
 			user.setLastName(rs.getString("lastName"));
 			user.setPassword(rs.getString("Password"));
 			user.setUserName(rs.getString("UserName"));
+			user.setEmail(rs.getString("Email"));
 
 			return user;
 		}
