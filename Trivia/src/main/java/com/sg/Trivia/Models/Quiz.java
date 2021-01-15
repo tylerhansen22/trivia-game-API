@@ -2,7 +2,7 @@ package com.sg.Trivia.Models;
 
 public class Quiz {
 	private int GameID;
-	private int UserID;
+	private int Score;
 	private int NumberCorrect;
 	private int TotalQuestion;
 
@@ -12,14 +12,6 @@ public class Quiz {
 
 	public void setGameID(int gameID) {
 		GameID = gameID;
-	}
-
-	public int getUserID() {
-		return UserID;
-	}
-
-	public void setUserID(int userID) {
-		UserID = userID;
 	}
 
 	public int getNumberCorrect() {
@@ -38,8 +30,12 @@ public class Quiz {
 		TotalQuestion = totalQuestion;
 	}
 
-	public double calculateStatistics(int numberCorrect, int totalQuestions) {
-		return (numberCorrect / totalQuestions);
+	public int getScore() {
+		return Score;
+	}
+
+	public void setScore(int score) {
+		Score = score;
 	}
 
 }

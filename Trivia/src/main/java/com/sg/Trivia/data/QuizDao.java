@@ -3,17 +3,14 @@ package com.sg.Trivia.data;
 import java.util.List;
 
 import com.sg.Trivia.Models.Quiz;
+import com.sg.Trivia.Models.User;
 
 public interface QuizDao {
-	Quiz getQuizByGameId(int id);
 
-	Quiz getQuizByUserId(int id);
-
-	List<Quiz> getAllQuizzes();
+	List<Quiz> getAllQuiz();
 
 	Quiz addQuiz(Quiz quiz);
 
-	void updateQuiz(Quiz quiz);
+	Quiz getQuizbyId(int id);
 
-	void deleteQuizbById(int id);
 }

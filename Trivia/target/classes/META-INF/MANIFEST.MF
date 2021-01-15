@@ -1,6 +1,10 @@
 Manifest-Version: 1.0
-Build-Jdk-Spec: 15
-Implementation-Title: TriviaGame
-Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Danny
+Build-Jdk: 15.0.1
+Implementation-Title: Bulls_and_Cows_API
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: Bulls_and_Cows_API
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/Bulls_and_Cows_API
 Created-By: Maven Integration for Eclipse
 
